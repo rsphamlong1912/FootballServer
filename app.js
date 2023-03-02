@@ -6,6 +6,8 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var nationRouter = require("./routes/nationRouter");
+var playerRouter = require("./routes/playerRouter");
 
 var app = express();
 
@@ -26,6 +28,9 @@ app.use("/users", usersRouter);
 app.use(function (req, res, next) {
   next(createError(404));
 });
+
+app.use("/nations", nationRouter);
+app.use("/player", playerRouter);
 
 // error handler
 app.use(function (err, req, res, next) {
